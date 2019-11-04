@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sequelize Tutorial</title>
+</head>
+<body>
+
+<% if(session.email){ %>
+    <h3><%=session.email%></h3>
+    <form action="/users?_method=delete" method="post">
+        <input type="submit" value="LogOut">
+    </form>
+<% } else{ %>
+    <h3>Sign In</h3>
+    <form action="/users" method="post">
+        <table>
+            <tr>
+                <td>Email : </td>
+                <td><input type="text" name="userEmail"></td>
+            </tr>
+            <tr>
+                <td>Pass : </td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="SignIn"></td>
+                <td><button type="button" onclick="location.href='/members'">Join</button></td>
+            </tr>
+        </table>
+    </form>
+<% } %>
+
+</body>
+</html>
